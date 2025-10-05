@@ -9,7 +9,7 @@ Comparo **Regresión Logística** (baseline y regularización) vs **Random Fores
 
 ---
 
-## 🧾 Resumen (60s)
+## 🧾 Resumen 
 - **Objetivo:** predecir alto riesgo crediticio (binario) con métricas **Accuracy / Precision / Recall / F1 / ROC-AUC**.
 - **Datos:** OpenML `credit` (v1). Variables numéricas de comportamiento/ingresos.  
 - **Técnicas:** split estratificado, escalado con `StandardScaler` para continuas.  
