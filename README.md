@@ -20,6 +20,7 @@ Predecir si un cliente tendrá **alto riesgo crediticio** (clasificación binari
 ```python
 from sklearn.datasets import fetch_openml
 df = fetch_openml("credit", version=1, as_frame=True).frame
+```
 
 ## 🧰 Librerías utilizadas
 
