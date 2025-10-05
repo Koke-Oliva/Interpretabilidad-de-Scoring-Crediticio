@@ -2,7 +2,7 @@
 
 Proyecto de **modelado para scoring crediticio** con un pipeline claro y resultados evaluables.  
 Se entrenan y comparan **Regresión Logística** (baseline y con regularización) y **Random Forest** con **GridSearchCV**.  
-> En esta versión **aún no** se incluyen SHAP/LIME; quedan en **Trabajo futuro**.
+
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Koke-Oliva/Interpretabilidad-de-Scoring-Crediticio/blob/main/Interpretabilidad_de_Scoring_Crediticio.ipynb)
 
