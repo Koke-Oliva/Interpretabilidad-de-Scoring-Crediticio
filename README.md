@@ -1,26 +1,25 @@
 # 🧠 Interpretabilidad de Scoring Crediticio
 
-Proyecto de **modelado y explicabilidad** para un problema de *credit scoring* (aprobación/rechazo o riesgo de impago).  
-Se construye un pipeline de ML y se explican las predicciones con **SHAP** y **LIME**.
-
-[![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)]()
-[![Jupyter](https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white)]()
-[![scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?logo=scikitlearn&logoColor=white)]()
-[![Pandas](https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white)]()
-[![NumPy](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white)]()
-[![SHAP](https://img.shields.io/badge/SHAP-black)]()
-[![LIME](https://img.shields.io/badge/LIME-darkgreen)]()
-
-> Notebook principal: **`Interpretabilidad-de-Scoring-Crediticio.ipynb`**  
-> 👉 Ajusta el nombre/ruta si lo moviste a `notebooks/`.
+Proyecto de **modelado para scoring crediticio** con foco en un pipeline limpio y resultados evaluables.  
+Se entrenan y comparan **Regresión Logística (con y sin regularización)** y **Random Forest**.  
+> En esta versión **no** se usan aún técnicas de interpretabilidad global/local (SHAP/LIME). Se dejan en “Trabajo futuro”.
 
 ---
 
 ## 🎯 Objetivo
-1. Entrenar un modelo de clasificación binaria para **riesgo crediticio**.  
-2. Evaluar desempeño con **métricas estándar** (Accuracy, Precision, Recall, F1, ROC-AUC).  
-3. Explicar las predicciones con **SHAP** (global & local) y **LIME** (local).  
+Predecir si un cliente tendrá **alto riesgo crediticio** (binario) y evaluar el desempeño con métricas estándar (Accuracy, Precision, Recall, F1, ROC-AUC).
 
 ---
 
-## 🗂️ Estructura (sugerida)
+## 🗃️ Dataset
+- Fuente: **OpenML** — dataset `Credit` (versión 1).
+- Tamaño: **16.714** filas · **11** características + objetivo.
+- Variable objetivo: **`SeriousDlqin2yrs`** (1=evento severo de morosidad en 2 años).
+- Balance observado:
+  - `0`: **8352**
+  - `1`: **8273**
+
+Carga usada en el notebook:
+```python
+from sklearn.datasets import fetch_openml
+df = fetch_openml("Credit", version=1, as_frame=True).frame
