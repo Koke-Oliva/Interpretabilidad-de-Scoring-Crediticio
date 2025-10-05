@@ -1,25 +1,22 @@
 # 🧠 Interpretabilidad de Scoring Crediticio
 
-Proyecto de **modelado para scoring crediticio** con foco en un pipeline limpio y resultados evaluables.  
-Se entrenan y comparan **Regresión Logística (con y sin regularización)** y **Random Forest**.  
-> En esta versión **no** se usan aún técnicas de interpretabilidad global/local (SHAP/LIME). Se dejan en “Trabajo futuro”.
+Proyecto de **modelado para scoring crediticio** con un pipeline claro y resultados evaluables.  
+Se entrenan y comparan **Regresión Logística** (baseline y con regularización) y **Random Forest** con **GridSearchCV**.  
+> En esta versión **aún no** se incluyen SHAP/LIME; quedan en **Trabajo futuro**.
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Koke-Oliva/Interpretabilidad-de-Scoring-Crediticio/blob/main/Interpretabilidad_de_Scoring_Crediticio.ipynb)
 
 ---
 
 ## 🎯 Objetivo
-Predecir si un cliente tendrá **alto riesgo crediticio** (binario) y evaluar el desempeño con métricas estándar (Accuracy, Precision, Recall, F1, ROC-AUC).
+Predecir si un cliente tendrá **alto riesgo crediticio** (clasificación binaria) y evaluar el desempeño con **Accuracy, Precision, Recall, F1 y ROC-AUC**.
 
 ---
 
 ## 🗃️ Dataset
-- Fuente: **OpenML** — dataset `Credit` (versión 1).
-- Tamaño: **16.714** filas · **11** características + objetivo.
-- Variable objetivo: **`SeriousDlqin2yrs`** (1=evento severo de morosidad en 2 años).
-- Balance observado:
-  - `0`: **8352**
-  - `1`: **8273**
-
-Carga usada en el notebook:
+- Fuente: **OpenML** (`credit`, versión 1), con variables numéricas típicas de riesgo.
+- Objetivo: **`SeriousDlqin2yrs`** (1 = evento severo de morosidad en 2 años).
+- Carga en el notebook:
 ```python
 from sklearn.datasets import fetch_openml
-df = fetch_openml("Credit", version=1, as_frame=True).frame
+df = fetch_openml("credit", version=1, as_frame=True).frame
