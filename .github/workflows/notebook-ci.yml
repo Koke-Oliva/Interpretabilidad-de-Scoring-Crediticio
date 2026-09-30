@@ -1,6 +1,12 @@
 name: Notebook CI
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "Interpretabilidad_de_Scoring_Crediticio.ipynb"
+      - "requirements.txt"
+      - ".github/workflows/notebook-ci.yml"
   pull_request:
     branches: [main]
     paths:
