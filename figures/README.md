@@ -1,16 +1,6 @@
 # Figuras del proyecto
 
-## Figuras de referencia ya versionadas
-
-Estas imágenes corresponden a la ejecución original evaluada y permiten que el README muestre resultados sin obligar al revisor a abrir el notebook:
-
-- `reference_rf_confusion_matrix.png`
-- `reference_rf_roc_curve.png`
-- `reference_logistic_coefficients.png`
-
-## Figuras regeneradas por la versión profesionalizada
-
-Al ejecutar el notebook actualizado se generan:
+Esta carpeta contiene artefactos generados por una ejecución completa y validada del notebook:
 
 - `rf_confusion_matrix.png`
 - `rf_roc_curve.png`
@@ -20,4 +10,4 @@ Al ejecutar el notebook actualizado se generan:
 - `shap_global_bar.png`
 - `shap_local_waterfall.png`
 
-Las figuras nuevas deben provenir de una ejecución completa y coherente del notebook. Cuando la ejecución sea validada, estas pueden reemplazar a las figuras de referencia del README.
+Las figuras se regeneran desde el notebook para mantener alineados código, métricas y documentación.
