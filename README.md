@@ -48,6 +48,22 @@ La ejecución originalmente evaluada del proyecto produjo:
 
 > **Importante:** estos valores se conservan como referencia de la ejecución evaluada. El notebook profesionalizado recalcula todas las métricas de principio a fin y es la fuente de verdad para futuras actualizaciones, evitando copiar manualmente resultados potencialmente desactualizados.
 
+### Evidencia visual de la ejecución de referencia
+
+**Matriz de confusión — Random Forest optimizado**
+
+![Matriz de confusión Random Forest](figures/reference_rf_confusion_matrix.png)
+
+**Curva ROC — Random Forest optimizado**
+
+![Curva ROC Random Forest](figures/reference_rf_roc_curve.png)
+
+**Coeficientes — Regresión Logística regularizada**
+
+![Coeficientes Regresión Logística](figures/reference_logistic_coefficients.png)
+
+Estas figuras corresponden a la ejecución original evaluada. Al ejecutar la versión profesionalizada, el notebook genera nuevamente los artefactos ROC, PR, matriz de confusión, umbral y explicabilidad en `figures/`.
+
 ## Interpretabilidad
 
 La versión profesionalizada incorpora tres niveles:
