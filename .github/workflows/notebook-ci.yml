@@ -3,7 +3,14 @@ name: Notebook CI
 on:
   pull_request:
     branches: [main]
+    paths:
+      - "Interpretabilidad_de_Scoring_Crediticio.ipynb"
+      - "requirements.txt"
+      - ".github/workflows/notebook-ci.yml"
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   execute-notebook:
@@ -11,8 +18,10 @@ jobs:
     timeout-minutes: 45
 
     steps:
-      - name: Checkout
+      - name: Checkout head branch
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -28,8 +37,24 @@ jobs:
 
       - name: Execute notebook end-to-end
         run: |
-          mkdir -p artifacts
+          mkdir -p artifacts figures
           jupyter nbconvert             --to notebook             --execute Interpretabilidad_de_Scoring_Crediticio.ipynb             --output artifacts/Interpretabilidad_de_Scoring_Crediticio.executed.ipynb             --ExecutePreprocessor.timeout=2400
+
+      - name: Promote executed notebook
+        if: github.event_name == 'pull_request'
+        run: |
+          cp artifacts/Interpretabilidad_de_Scoring_Crediticio.executed.ipynb              Interpretabilidad_de_Scoring_Crediticio.ipynb
+
+      - name: Commit regenerated notebook and figures
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Interpretabilidad_de_Scoring_Crediticio.ipynb figures/*.png
+          if ! git diff --cached --quiet; then
+            git commit -m "[skip ci] chore: refresh executed notebook and figures"
+            git push origin HEAD:${{ github.head_ref }}
+          fi
 
       - name: Upload executed notebook
         if: always()
