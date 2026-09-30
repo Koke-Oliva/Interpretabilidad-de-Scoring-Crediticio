@@ -2,12 +2,22 @@
 
 Proyecto de **Machine Learning explicable** para estimar riesgo de morosidad a dos años. Compara **Regresión Logística regularizada** y **Random Forest**, con validación cruzada sin leakage, análisis de umbral e interpretabilidad global/local mediante **SHAP y LIME**.
 
-[![Notebook CI](https://github.com/Koke-Oliva/Interpretabilidad-de-Scoring-Crediticio/actions/workflows/notebook-ci.yml/badge.svg?branch=portfolio-professionalization)](https://github.com/Koke-Oliva/Interpretabilidad-de-Scoring-Crediticio/actions/workflows/notebook-ci.yml)
+[![Notebook CI](https://github.com/Koke-Oliva/Interpretabilidad-de-Scoring-Crediticio/actions/workflows/notebook-ci.yml/badge.svg?branch=main)](https://github.com/Koke-Oliva/Interpretabilidad-de-Scoring-Crediticio/actions/workflows/notebook-ci.yml)
 [![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
 [![SHAP](https://img.shields.io/badge/Explainability-SHAP-6F4E7C)](https://shap.readthedocs.io/)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Koke-Oliva/Interpretabilidad-de-Scoring-Crediticio/blob/portfolio-professionalization/Interpretabilidad_de_Scoring_Crediticio.ipynb)
-[![nbviewer](https://img.shields.io/badge/nbviewer-open-orange)](https://nbviewer.org/github/Koke-Oliva/Interpretabilidad-de-Scoring-Crediticio/blob/portfolio-professionalization/Interpretabilidad_de_Scoring_Crediticio.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Koke-Oliva/Interpretabilidad-de-Scoring-Crediticio/blob/main/Interpretabilidad_de_Scoring_Crediticio.ipynb)
+[![nbviewer](https://img.shields.io/badge/nbviewer-open-orange)](https://nbviewer.org/github/Koke-Oliva/Interpretabilidad-de-Scoring-Crediticio/blob/main/Interpretabilidad_de_Scoring_Crediticio.ipynb)
+
+## Vista rápida
+
+- **Mejor discriminación:** Random Forest optimizado, **ROC-AUC 0.8394** y **PR-AUC 0.8287**.
+- **Trade-off de decisión:** un umbral de referencia de **0.43**, definido con predicciones out-of-fold de entrenamiento, aumenta el recall a **0.8115**.
+- **Explicabilidad:** coeficientes estandarizados + **SHAP global/local** + **LIME** sobre el mismo caso.
+- **Rigor metodológico:** test aislado, `Pipeline`, `StratifiedKFold`, tuning y análisis de umbral sin optimizar sobre test.
+- **Reproducibilidad:** GitHub Actions ejecuta el notebook de principio a fin y regenera las figuras.
+
+> Proyecto demostrativo de portafolio. No está planteado como sistema de decisión crediticia para producción.
 
 ## Problema
 
